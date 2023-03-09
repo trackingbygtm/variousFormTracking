@@ -37,7 +37,7 @@ function() {
 2. wpFormInput0
 ----------------
 function() {
-  var field = {{wpFormElement}}.elements.item(0) //First element of form
+  var field = {{wpFormElement}}.elements.item(0) //First element of form it's like an array 0,1,2,3,4 use like this
   return field ? field.value : undefined;
 }
 
@@ -51,6 +51,17 @@ function() {
 4. wpFormElement
 ----------------
 Data layer Variable
+
+
+5. custom javascript
+________________-----
+function() {
+  'use strict';
+  // your code here
+  return document.querySelector(".className").innerText.replace('€', '').replace(',', '.');
+}
+
+
 
 if this document is helpful for subscribe my channel for more upcoming videos.
 
