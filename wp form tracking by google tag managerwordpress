@@ -1,0 +1,91 @@
+# WP Form Submission Event
+
+Events Name GA4 = generate_lead
+
+Additional Parameters = formId
+
+cHTML Tags on Tag manger 
+=========================
+
+<script>
+  // This code notifies Google Tag Manager when a wpForm is submitted
+  var elementsArray = document.querySelectorAll('[id^="wpforms-form-"]');
+  elementsArray.forEach(function(elem) {
+    elem.addEventListener("submit", function(e) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "wpFormSubmit",
+        wpFormElement: event.target
+      });
+    });
+  });
+</script>
+
+
+
+Triggering  === ✅  All Pages
+
+Variable
+
+1. wpFormId
+-----------
+function() {
+  var field = {{wpFormElement}}.elements.item(0) //First element of form
+  return field ? field.value : undefined;
+}
+
+2. wpFormInput0
+----------------
+function() {
+  var field = {{wpFormElement}}.elements.item(0) //First element of form
+  return field ? field.value : undefined;
+}
+
+3. wpFormAction
+---------------
+function() {
+  var formAction = {{wpFormElement}}.action;
+  return formAction ? formAction : undefined;
+}
+
+4. wpFormElement
+----------------
+Data layer Variable
+
+if this document is helpful for subscribe my channel for more upcoming videos.
+
+CEO - Founder
+TrackingbyGTM
+https://wlo.link/@trackingbygtm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
