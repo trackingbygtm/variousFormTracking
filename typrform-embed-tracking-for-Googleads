@@ -1,0 +1,46 @@
+Welcome to Trackingbygtm
+
+Script - Listener
+=================
+-->>On custom HTML<<---
+
+///LISTEN FOR MESSAGE FROM IFRAME TYPEFORM
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+// Listen to message from child window
+eventer(messageEvent,function(e) {
+    var key = e.message ? "message" : "data";
+    var data = e[key];
+    
+    console.log("data.type:");
+    console.log(data.type);
+    console.log("data:");
+    console.log(data);
+    
+    if(data.type == "form-submit"){
+        console.log("🎉 Typeform Conversion detected!")
+    }
+
+},false);
+
+
+
+=====>>Form ID<<=====
+
+Data layer Variable:::
+
+typeform-form-id
+
+
+=====>> Form successfull Trigger<<======
+Custom Trigger
+
+typeform-submitted-successfully
+
+===========
+
+
+
+
