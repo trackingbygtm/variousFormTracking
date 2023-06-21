@@ -1,4 +1,4 @@
-custom html
+custom html -  cJS - Gravity form - listhner
 ===
 <script>
 jQuery(document).ready( function() {
@@ -24,3 +24,16 @@ function() {
     return document.getElementsByName('input_box_name')[0] ? document.getElementsByName('input_box_name')[0].value: '';
 }
 
+
+
+=====
+#How To Track Gravity Form Submission With Google Tag Manager
+If you are using the Gravity form on your website and you want to measure the form conversions in your analytics tools and advertising platform
+
+You will have to use the Gravity form event listener and Google Tag Manager to make this possible.
+
+First, create a custom HTML tag type, paste the event listener code there and fire it on pageview or DOM ready.
+
+Next, you’ll set up a custom event trigger with the event name [formSubmissionSuccess] used to fire your marketing pixels/tags on successful Gravity form submissions.
+
+To capture the Gravity form ID, create a dataLayer variable with the key [formID].  you can push the form ID into your analytics as an event parameter.
