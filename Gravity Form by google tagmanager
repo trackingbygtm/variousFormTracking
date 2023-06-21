@@ -18,5 +18,9 @@ Variable:
 dlv - form id -      gfformID
 
 
-
+1. using Custom javascript variable by input box name
+-----------------
+function() {
+    return document.getElementsByName('input_box_name')[0] ? document.getElementsByName('input_box_name')[0].value: '';
+}
 
