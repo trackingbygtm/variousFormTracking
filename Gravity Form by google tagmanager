@@ -24,7 +24,19 @@ function() {
     return document.getElementsByName('input_box_name')[0] ? document.getElementsByName('input_box_name')[0].value: '';
 }
 
+-----!important---
+confermation page script
 
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+	'event': 'gravity_form_submit',
+	'firstName': '',
+	'lastName': '',
+	'email': '',
+	'phone':''
+});
+</script>
 
 =====
 #How To Track Gravity Form Submission With Google Tag Manager
