@@ -1,0 +1,50 @@
+cHTML | Mailchimp Form
+
+
+<script>
+  
+function trackMailchimpForm(event) {
+  // Check if the form element or its parent has the data-gtm-form-track attribute
+  var form = event.target.closest('[data-gtm-form-track="true"]');
+  if (form) {
+    // Extract relevant form data
+    var formId = form.id;
+    var formAction = form.action;
+
+    dataLayer.push({
+      'event': 'mailchimpFormSubmitted',
+      'formId': formId,
+      'formAction': formAction
+      
+    });
+  }
+}
+
+document.addEventListener('submit', trackMailchimpForm, true);
+  
+</script>
+
+=============================
+<form data-gtm-form-track="true">
+so you need to add this on your form 
+
+=== data-gtm-form-track="true"
+
+
+Trigger : this is custom event
+
+eventName:   mailchimpFormSubmitted
+
+
+
+
+
+
+
+
+
+
+
+
+
+
