@@ -101,6 +101,26 @@ Trigger: This is a custom event
 
 eventName:   mailchimpFormSubmitted
 
+----
+// Extract relevant form data
+    var nameInput = form.elements['name'];
+    var emailInput = form.elements['email'];
+    var phoneInput = form.elements['phone'];
 
+    // Get the values of the form fields
+    var nameValue = nameInput.value;
+    var emailValue = emailInput.value;
+    var phoneValue = phoneInput.value;
 
+then add this on data layer 
 
+dataLayer.push({
+      'event': 'mailchimpFormSubmitted',
+      'formId': formId,
+      'name': nameValue,
+      'email': emailValue,
+      'phone': phoneValue
+      // Add any additional data you want to track
+    });
+
+//Important Type this code manually won't copy paste this 😃😃😃😃
