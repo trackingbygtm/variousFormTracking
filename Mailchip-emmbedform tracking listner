@@ -124,3 +124,16 @@ dataLayer.push({
     });
 
 //Important Type this code manually won't copy paste this 😃😃😃😃
+
+
+For Event Matching 
+
+
+user_data.email_address
+user_data.address.first_name
+user_data.address.last_name
+user_data.phone_number
+user_data.address.city
+user_data.address.postal_code
+user_data.address.country
+
