@@ -31,12 +31,42 @@ so you need to add this on your form
 === data-gtm-form-track="true"
 
 
-Trigger : this is custom event
+Trigger: This is a custom event
 
 eventName:   mailchimpFormSubmitted
 
 
+DIFFERENT WAY ====== 2
 
+cHTML | Mailchimp Form
+
+// Custom JavaScript code
+function trackMailchimpForm(event) {
+  // Check if the event target matches the Mailchimp form
+  var form = event.target;
+  if (form.getAttribute('action') === 'YOUR_MAILCHIMP_FORM_ACTION_URL') {
+    // Extract relevant form data
+    var formId = form.id;
+    var formAction = form.action;
+
+    // Send form data to Google Tag Manager
+    dataLayer.push({
+      'event': 'mailchimpFormSubmitted',
+      'formId': formId,
+      'formAction': formAction
+      // Add any additional data you want to track
+    });
+  }
+}
+
+// Attach the event listener to form submissions
+document.addEventListener('submit', trackMailchimpForm, true);
+
+
+
+Trigger: This is a custom event
+
+eventName:   mailchimpFormSubmitted
 
 
 
