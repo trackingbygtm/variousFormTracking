@@ -70,10 +70,36 @@ eventName:   mailchimpFormSubmitted
 
 
 
+DIFFERENT WAY ====== 3
 
+cHTML | Mailchimp Form
 
+// Custom JavaScript code
+function trackMailchimpForm(event) {
+  // Check if the event target is the Mailchimp form by its ID
+  var form = event.target;
+  var formId = form.id;
+  if (formId === 'yourFormId') {
+    // Extract relevant form data
+    var formAction = form.action;
 
+    // Send form data to Google Tag Manager
+    dataLayer.push({
+      'event': 'mailchimpFormSubmitted',
+      'formId': formId,
+      'formAction': formAction
+      // Add any additional data you want to track
+    });
+  }
+}
 
+// Attach the event listener to form submissions
+document.addEventListener('submit', trackMailchimpForm, true);
+
+------------
+Trigger: This is a custom event
+
+eventName:   mailchimpFormSubmitted
 
 
 
