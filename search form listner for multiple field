@@ -2,6 +2,35 @@ cHTML Search form listener
 
 Step 1: Need to change your 2 fiels class name 
 step 2: need to change your button class name
+
+<script>
+// Custom JavaScript code
+function trackSearch(event) {
+  var locationValue = event.target.parentElement.querySelector('.facetwp-location').value;
+  var categoryValue = event.target.parentElement.querySelector('.facetwp-dropdown').value;
+  var rediousValue = event.target.parentElement.querySelector('.facetwp-radius').value;
+
+  // Send search data to Google Tag Manager
+  dataLayer.push({
+    'event': 'searchPerformedFacilities',
+    'searchfacilitieslocation': locationValue,
+    'searchfacilitiesredious' : rediousValue,
+    'searchfacilitiescategory': categoryValue
+    // Add any additional data you want to track
+  });
+}
+
+// Attach the event listener to the search button
+var searchButtons = document.querySelectorAll('.facetwp-refresh');
+searchButtons.forEach(function(button) {
+  button.addEventListener('click', trackSearch);
+});
+
+</script>
+
+
+If 1st script not works :
+------------------------
 <script>
 // Custom JavaScript code
 function trackSearch(event) {
@@ -31,7 +60,7 @@ searchButtons.forEach(function(button) {
 
 
 
-Need any Help ?
+Need any Help?
 
 Founder Trackingbygtm
 https://wlo.link/@trackingbygtm
