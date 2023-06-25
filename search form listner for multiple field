@@ -1,0 +1,37 @@
+cHTML Search form listener
+
+Step 1: Need to change your 2 fiels class name 
+step 2: need to change your button class name
+<script>
+// Custom JavaScript code
+function trackSearch(event) {
+  var locationValue = event.target.parentElement.querySelector('.locationInput').value;
+  var categorySelect = event.target.parentElement.querySelector('.categorySelect');
+  var categoryValue = categorySelect.options[categorySelect.selectedIndex].value;
+  var radiusSelect = event.target.parentElement.querySelector('.radiusSelect');
+  var radiusValue = radiusSelect.options[radiusSelect.selectedIndex].value;
+
+  // Send search data to Google Tag Manager
+  dataLayer.push({
+    'event': 'searchPerformed',
+    'location': locationValue,
+    'category': categoryValue,
+    'radius': radiusValue
+    // Add any additional data you want to track
+  });
+}
+
+// Attach the event listener to the search button
+var searchButtons = document.querySelectorAll('.searchButton');
+searchButtons.forEach(function(button) {
+  button.addEventListener('click', trackSearch);
+});
+
+</script>
+
+
+
+Need any Help ?
+
+Founder Trackingbygtm
+https://wlo.link/@trackingbygtm
