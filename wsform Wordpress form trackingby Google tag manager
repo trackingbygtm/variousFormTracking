@@ -1,0 +1,58 @@
+cJS WSform listener
+-----------------------
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#ws-form-1').on('submit', function(event) {
+    event.preventDefault();
+    
+    var formValues = {};
+    $(this).find(':input').each(function() {
+      var input = $(this);
+      var name = input.attr('name');
+      var value = input.val();
+      
+      // Special handling for select fields
+      if (input.is('select')) {
+        if (input.prop('multiple')) {
+          var selectedOptions = input.find('option:selected');
+          value = [];
+          selectedOptions.each(function() {
+            value.push($(this).text());
+          });
+        } else {
+          value = input.find('option:selected').text();
+        }
+      }
+      
+      formValues[name] = value;
+    });
+    
+    // Push the specific field values to the data layer
+    dataLayer.push({
+      'event': 'wsFormSubmission',
+      'wsfpickUPLocation': formValues['field_457[]'],
+      'wsfdestination': formValues['field_455[]'],
+      'wsfpickupDate': formValues['field_463'],
+      'wsfpickuptime': formValues['field_464'],
+      'wsfflightNumber': formValues['field_472'],
+      'wsfairLine': formValues['field_473'],
+      'wsfpassenger': formValues['field_478[]'],
+      'wsffullName': formValues['field_475'],
+      'wsfemail': formValues['field_476'],
+      'wsfphoneNumber': formValues['field_477'],
+      'wsfpurchaseValue': formValues['field_461']
+    });
+    
+    // Uncomment the line below if you want to submit the form
+    // $(this).submit();
+  });
+});
+</script>
+
+
+
+this is Autometicall track your All field Data
+
+
