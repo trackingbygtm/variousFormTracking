@@ -129,11 +129,11 @@ dataLayer.push({
 For Event Matching 
 
 
-user_data.email_address
-user_data.address.first_name
-user_data.address.last_name
-user_data.phone_number
-user_data.address.city
-user_data.address.postal_code
-user_data.address.country
+user_data_email_address
+user_data_address.first_name
+user_data_address.last_name
+user_data_phone_number
+user_data_address_city
+user_data_address_postal_code
+user_data_address_country
 
