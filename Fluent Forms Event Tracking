@@ -1,0 +1,23 @@
+<script>
+   (function($){
+     var fluentForms = $('.frm-fluent-form');
+     fluentForms.each(function() {
+       var $form = $(this);
+       var formId = $form.attr('data-form_id');
+       dataLayer.push({
+        'event': 'FluentFormActivities',
+        'eventCategory': 'FluentForm',
+        'eventAction': 'FormView',
+        'FluentFormID' : formId
+      });
+   $form.on('fluentform_submission_success', function() {
+     dataLayer.push({
+       'event': 'FluentFormActivities',
+       'eventCategory': 'FluentForm',
+       'eventAction': 'FormSubmitted',
+       'FluentFormID' : formId
+     });
+   });
+  });
+ }(jQuery));
+</script>
