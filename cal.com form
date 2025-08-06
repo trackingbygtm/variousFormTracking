@@ -1,0 +1,28 @@
+<script>
+/**
+* Author: trackingbygtm 
+* Email: office.tbgtm@gmail.com
+*/
+
+window.addEventListener('message', function(event) {
+  if (!event.origin.includes('cal.com')) return;
+
+  var data = event.data;
+  var booking = data && data.data && data.data.booking;
+
+  if (
+    data.originator === 'CAL' &&
+    data.type === 'bookingSuccessful' &&
+    booking &&
+    booking.responses
+  ) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cal_booking_success',
+      origin: event.origin,
+      bookingId: booking.id,
+      responses: booking.responses
+    });
+  }
+});
+</script>
