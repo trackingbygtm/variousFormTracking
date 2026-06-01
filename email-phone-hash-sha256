@@ -1,0 +1,7 @@
+<script>
+function() {
+    return sha256( {{value}} ); //replace {{value}} with right variable
+
+    function sha256(r){if(r){r=r.toString();for(var $,_,o=Math.pow,f=o(2,32),t="length",a="",n=[],h=8*r[t],i=sha256.h=sha256.h||[],c=sha256.k=sha256.k||[],e=c[t],s={},u=2;e<64;u++)if(!s[u]){for($=0;$<313;$+=u)s[$]=u;i[e]=o(u,.5)*f|0,c[e++]=o(u,1/3)*f|0}for(r+="\x80";r[t]%64-56;)r+="\0";for($=0;$<r[t];$++){if((_=r.charCodeAt($))>>8)return;n[$>>2]|=_<<(3-$)%4*8}for(_=0,n[n[t]]=h/f|0,n[n[t]]=h;_<n[t];){var v=n.slice(_,_+=16),g=i;for($=0,i=i.slice(0,8);$<64;$++){var l=v[$-15],k=v[$-2],x=i[0],S=i[4],d=i[7]+(A(S,6)^A(S,11)^A(S,25))+(S&i[5]^~S&i[6])+c[$]+(v[$]=$<16?v[$]:v[$-16]+(A(l,7)^A(l,18)^l>>>3)+v[$-7]+(A(k,17)^A(k,19)^k>>>10)|0),p=(A(x,2)^A(x,13)^A(x,22))+(x&i[1]^x&i[2]^i[1]&i[2]);(i=[d+p|0].concat(i))[4]=i[4]+d|0}for($=0;$<8;$++)i[$]=i[$]+g[$]|0}for($=0;$<8;$++)for(_=3;_+1;_--){var w=i[$]>>8*_&255;a+=(w<16?0:"")+w.toString(16)}return a}function A(r,$){return r>>>$|r<<32-$}}
+}
+</script>
